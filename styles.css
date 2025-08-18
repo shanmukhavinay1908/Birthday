@@ -1,0 +1,106 @@
+/* Global */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+h1, h2 { text-align: center; margin-bottom: 1rem; }
+section { padding: 60px 20px; }
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero h1 { font-size: 3rem; animation: fadeIn 2s ease-in; }
+.hero p { margin: 15px 0; font-size: 1.2rem; }
+.btn {
+  display: inline-block;
+  background: #ff4b5c;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.btn:hover { background: #ff1e40; }
+
+/* About */
+.about { text-align: center; max-width: 600px; margin: auto; }
+.about img { width: 200px; border-radius: 50%; margin-top: 20px; }
+
+/* Gallery */
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.gallery img { width: 100%; border-radius: 10px; transition: transform 0.3s; }
+.gallery img:hover { transform: scale(1.05); }
+
+/* Countdown */
+.countdown { text-align: center; background: #f9f9f9; }
+#timer { font-size: 2rem; font-weight: bold; margin-top: 10px; }
+
+/* Wishes */
+.wishes .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 250px;
+  transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+
+/* Timeline */
+.timeline ul {
+  list-style: none;
+  max-width: 600px;
+  margin: auto;
+  padding-left: 0;
+}
+.timeline li {
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+.timeline span {
+  font-weight: bold;
+  color: #ff4b5c;
+}
+
+/* Party */
+.party { text-align: center; background: #f1f1f1; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .btn { padding: 10px 20px; }
+}
