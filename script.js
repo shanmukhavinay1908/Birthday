@@ -1,20 +1,24 @@
-// Countdown Timer
-const eventDate = new Date("Aug 25, 2025 00:00:00").getTime();
-const timer = document.getElementById("timer");
+function enterGallery() {
+  window.location.href = "gallery.html";
+}
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
+// Create shining stars
+function createStars() {
+  const body = document.querySelector(".welcome-page");
+  for (let i = 0; i < 50; i++) {  // number of stars
+    let star = document.createElement("div");
+    star.classList.add("star");
 
-  if (distance <= 0) {
-    timer.innerHTML = "🎉 It's the Birthday Today!";
-    return;
+    // Random positions everywhere on screen
+    star.style.top = Math.random() * window.innerHeight + "px";
+    star.style.left = Math.random() * window.innerWidth + "px";
+
+    // Random animation speed & delay
+    star.style.animationDuration = (1.5 + Math.random() * 2) + "s";
+    star.style.animationDelay = (Math.random() * 3) + "s";
+
+    body.appendChild(star);
   }
+}
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}, 1000);
+window.onload = createStars;
