@@ -4,16 +4,16 @@ body {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #4b0082, #8a2be2, #9400d3, #9932cc);
+  background: linear-gradient(135deg, #000000, #1a1a1a, #0d0d0d, #262626);
   background-size: 400% 400%;
-  animation: violetShine 15s ease infinite;
+  animation: blackShine 15s ease infinite;
   overflow-y: auto;  /* allow scrolling */
   min-height: 100vh;
   position: relative;
 }
 
-/* Violet shining background animation */
-@keyframes violetShine {
+/* Black shining background animation */
+@keyframes blackShine {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -23,7 +23,7 @@ body {
 .birthday-wish {
   text-align: center;
   padding: 30px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   margin: 20px auto;
   width: 80%;
@@ -32,7 +32,7 @@ body {
 .birthday-wish h1 {
   font-size: 2.5rem;
   color: gold;
-  text-shadow: 0 0 15px #ffd700, 0 0 25px #ffa500;
+  text-shadow: 0 0 15px #ffd700, 0 0 25px #ffa500, 0 0 40px gold;
 }
 
 .birthday-wish p {
@@ -46,7 +46,7 @@ body {
   margin: 20px;
   font-size: 2rem;
   color: #ffdd57;
-  text-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 40px #ffa500;
 }
 
 /* Photo Grid */
@@ -63,13 +63,13 @@ body {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-grid img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px gold;
+  box-shadow: 0 0 30px gold;
 }
 
 /* Stars effect */
