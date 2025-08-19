@@ -4,11 +4,19 @@ body {
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
-  background: url("https://github.com/shanmukhavinay1908/Birthday/blob/main/bg2.png") no-repeat center center fixed;
-  background-size: cover;
+  background: linear-gradient(135deg, #4b0082, #8a2be2, #9400d3, #9932cc);
+  background-size: 400% 400%;
+  animation: violetShine 15s ease infinite;
   overflow-y: auto;  /* allow scrolling */
   min-height: 100vh;
   position: relative;
+}
+
+/* Violet shining background animation */
+@keyframes violetShine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Birthday Wish */
@@ -77,5 +85,3 @@ body {
   from { opacity: 0.2; transform: scale(1); }
   to { opacity: 1; transform: scale(1.5); }
 }
-
-
