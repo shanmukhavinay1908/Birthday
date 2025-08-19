@@ -1,0 +1,63 @@
+/* Welcome Page */
+.welcome-page {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+
+  /* Layered background: main + filler */
+  background: 
+    url("images/bg.png") no-repeat center center,
+    url("images/bg2.png") repeat center center;
+
+  background-size: contain, cover;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enter Button */
+.enter-btn {
+  padding: 15px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background: gold;
+  color: #4b0082;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 40px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.enter-btn:hover {
+  background: #ffdf00;
+  transform: scale(1.1);
+}
+
+/* Twinkling stars */
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px gold, 0 0 20px white;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.5);
+  }
+}
