@@ -1,82 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Birthday Celebration 🎉</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <style>
+    /* Welcome Page */
+    .welcome-page {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      /* Layered background: main + filler */
+      background: 
+        url("images/bg.png") no-repeat center center,
+        url("images/bg2.png") repeat center center;
+      background-size: contain, cover;
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    /* Enter Button */
+    .enter-btn {
+      padding: 15px 40px;
+      font-size: 20px;
+      border: none;
+      border-radius: 30px;
+      background: gold;
+      color: #4b0082;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 40px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+      transition: 0.3s;
+      position: relative;
+      z-index: 2; /* above stars and sparkles */
+    }
+
+    .enter-btn:hover {
+      background: #ffdf00;
+      transform: scale(1.1);
+    }
+
+    /* Twinkling stars */
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px gold, 0 0 20px white;
+      animation: twinkle 2s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.2;
+        transform: scale(1.5);
+      }
+    }
+
+    /* Floating sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: gold;
+      border-radius: 50%;
+      box-shadow: 0 0 10px gold, 0 0 20px orange;
+      opacity: 0.8;
+      animation: floatUp 4s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="welcome-page">
+    <button class="enter-btn" onclick="enterGallery()">Enter</button>
+  </div>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <h1>Happy Birthday, Vinay 🎂</h1>
-    <p>Let's celebrate this special day together!</p>
-    <a href="#party" class="btn">Join the Party</a>
-  </header>
+  <script>
+    function enterGallery() {
+      window.location.href = "gallery.html";
+    }
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About the Birthday Star 🌟</h2>
-    <p>Hi, I'm Vinay! Today I turn another year wiser (and cooler 😎). 
-    Thanks for being a part of my journey and celebration!</p>
-    <img src="your-photo.jpg" alt="Birthday Person">
-  </section>
+    // Create shining stars
+    function createStars() {
+      const container = document.querySelector(".welcome-page");
+      for (let i = 0; i < 50; i++) {  // number of stars
+        let star = document.createElement("div");
+        star.classList.add("star");
 
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2>Memories 📸</h2>
-    <div class="grid">
-      <img src="https://picsum.photos/300/200?1" alt="">
-      <img src="https://picsum.photos/300/200?2" alt="">
-      <img src="https://picsum.photos/300/200?3" alt="">
-      <img src="https://picsum.photos/300/200?4" alt="">
-      <img src="https://picsum.photos/300/200?5" alt="">
-      <img src="https://picsum.photos/300/200?6" alt="">
-    </div>
-  </section>
+        star.style.top = Math.random() * container.clientHeight + "px";
+        star.style.left = Math.random() * container.clientWidth + "px";
 
-  <!-- Countdown Section -->
-  <section class="countdown">
-    <h2>Countdown to the Big Day ⏳</h2>
-    <div id="timer">Loading...</div>
-  </section>
+        star.style.animationDuration = (1.5 + Math.random() * 2) + "s";
+        star.style.animationDelay = (Math.random() * 3) + "s";
 
-  <!-- Wishes Section -->
-  <section class="wishes">
-    <h2>Friends & Family Wishes 💌</h2>
-    <div class="cards">
-      <div class="card">Happy Birthday! Wishing you joy & love 🎉</div>
-      <div class="card">May this year be your best one yet 🥳</div>
-      <div class="card">Have a blast today! 🎂</div>
-    </div>
-  </section>
+        container.appendChild(star);
+      }
+    }
 
-  <!-- Timeline Section -->
-  <section class="timeline">
-    <h2>Journey of Memories 📖</h2>
-    <ul>
-      <li><span>2005</span> – Little Rockstar was born 🎸</li>
-      <li><span>2010</span> – First School Day 📚</li>
-      <li><span>2015</span> – Fun Adventures 🌍</li>
-      <li><span>2020</span> – Achievements & Growth 🚀</li>
-      <li><span>2025</span> – Today: The Celebration 🎉</li>
-    </ul>
-  </section>
+    // Create floating sparkles
+    function createSparkles() {
+      const container = document.querySelector(".welcome-page");
+      setInterval(() => {
+        let sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
 
-  <!-- Party Info -->
-  <section class="party" id="party">
-    <h2>Party Details 🎊</h2>
-    <p>Date: <b>25th August 2025</b></p>
-    <p>Venue: <b>My Home Sweet Home</b></p>
-    <a href="#" class="btn">RSVP Now</a>
-  </section>
+        sparkle.style.left = Math.random() * container.clientWidth + "px";
+        sparkle.style.top = container.clientHeight + "px"; // start bottom
+        sparkle.style.animationDuration = (3 + Math.random() * 2) + "s";
 
-  <!-- Footer -->
-  <footer>
-    <p>Made with ❤️ for Vinay's Birthday | © 2025</p>
-  </footer>
+        container.appendChild(sparkle);
 
-  <script src="script.js"></script>
+        // remove after animation ends
+        setTimeout(() => {
+          sparkle.remove();
+        }, 5000);
+      }, 500); // one sparkle every 0.5 sec
+    }
+
+    window.onload = () => {
+      createStars();
+      createSparkles();
+    }
+  </script>
 </body>
 </html>
